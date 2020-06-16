@@ -1,0 +1,12 @@
+ th{
+  background-color:darkgray;
+}
+
+header{
+  margin:50px 0;
+}
+
+.table-bordered, .table-bordered td, .table-bordered th, .table-bordered tr{
+  border-color:black;
+  outline: thin solid;
+}
