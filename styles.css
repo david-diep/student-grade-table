@@ -1,0 +1,18 @@
+ th{
+  background-color:darkgray;
+}
+
+header{
+  margin:50px 0;
+}
+
+ .table-bordered td, .table-bordered th{
+
+  border-style: none solid;
+  border-color:black;
+}
+
+.table-bordered{
+  border-style:solid;
+  border-color: black;
+}
