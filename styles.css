@@ -6,7 +6,13 @@ header{
   margin:50px 0;
 }
 
-.table-bordered, .table-bordered td, .table-bordered th, .table-bordered tr{
+ .table-bordered td, .table-bordered th{
+
+  border-style: none solid;
   border-color:black;
-  outline: thin solid;
+}
+
+.table-bordered{
+  border-style:solid;
+  border-color: black;
 }
