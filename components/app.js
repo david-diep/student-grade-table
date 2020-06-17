@@ -10,7 +10,17 @@ class App {
   }
   handleGetGradesSuccess(grades) {
     this.gradeTable.updateGrades(grades);
-  }
+
+    let average = 0;
+    for (let i = 0; i < grades.length; i++) {
+      average += grades[i].grade;
+    }
+    average = average/grades.length;
+    this.pageHeader.updateAverage(average);
+
+  }//end of handle success
+
+
   getGrades() {
     $.ajax({
       method: "GET",
@@ -20,7 +30,9 @@ class App {
       error: this.handleGetGradesError
     });
   }
+
   start() {
     this.getGrades();
   }
+
 }
