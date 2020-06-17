@@ -12,9 +12,14 @@
 <body>
 
   <div class="container">
-  <header>
-    <h1>Student Grade Table</h1>
-  </header>
+  <div class="row header">
+    <div class="col-7">
+      <h1>Student Grade Table</h1>
+    </div>
+    <div class="col avg">
+      <h2>Average Grade <span class="badge badge-secondary">New</span></h2>
+    </div>
+  </div>
 
   <table class="table table-striped table-bordered">
     <thead>
@@ -30,6 +35,7 @@
   </table>
   </div>
   <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+  <script src = "components/page-header.js"></script>
   <script src = "components/grade-table.js"></script>
   <script src = "components/app.js"></script>
   <script src = "main.js"></script>

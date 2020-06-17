@@ -2,8 +2,8 @@
   background-color:darkgray;
 }
 
-header{
-  margin:50px 0;
+.header{
+  margin:40px 0;
 }
 
  .table-bordered td, .table-bordered th{
@@ -15,4 +15,14 @@ header{
 .table-bordered{
   border-style:solid;
   border-color: black;
+}
+
+.avg{
+  position:relative;
+
+}
+.avg h2{
+  position:absolute;
+  bottom:0;
+  right:0;
 }

@@ -1,4 +1,4 @@
 var gradeTable = new GradeTable(document.querySelector(".table-body"));
-
-var test = new App(gradeTable);
+var pageHeader = new PageHeader(document.querySelector(".avg"));
+var test = new App(gradeTable, pageHeader);
 test.start();

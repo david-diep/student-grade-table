@@ -1,25 +1,26 @@
-class App{
-  constructor(gradeTable){
-    this.handleGetGradesError=this.handleGetGradesError.bind(this);
+class App {
+  constructor(gradeTable, pageHeader) {
+    this.handleGetGradesError = this.handleGetGradesError.bind(this);
     this.handleGetGradesSuccess = this.handleGetGradesSuccess.bind(this);
-    this.gradeTable=gradeTable;
+    this.gradeTable = gradeTable;
+    this.pageHeader = pageHeader;
   }
-  handleGetGradesError(error){
+  handleGetGradesError(error) {
     console.log(error);
   }
   handleGetGradesSuccess(grades) {
     this.gradeTable.updateGrades(grades);
   }
-  getGrades(){
+  getGrades() {
     $.ajax({
-      method:"GET",
+      method: "GET",
       url: "https://sgt.lfzprototypes.com/api/grades",
-      headers: { "X-Access-Token": "HikRbc2E"},
-      success:this.handleGetGradesSuccess,
+      headers: { "X-Access-Token": "HikRbc2E" },
+      success: this.handleGetGradesSuccess,
       error: this.handleGetGradesError
     });
   }
-  start(){
+  start() {
     this.getGrades();
   }
 }
