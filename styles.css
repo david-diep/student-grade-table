@@ -26,3 +26,30 @@
   bottom:0;
   right:0;
 }
+
+.form-group input{
+
+width:90%;
+margin-bottom:20px;
+
+}
+
+form{
+  margin-left:1%;
+}
+
+.form-row{
+  display:flex;
+  justify-content: space-between;
+  width:100%;
+  margin:auto;
+}
+.button-row{
+  display:flex;
+  justify-content: right;
+  align-items: end;
+}
+#add{
+  margin-left:auto;
+  margin-right:3%;
+}
