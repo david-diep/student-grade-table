@@ -21,8 +21,36 @@
   position:relative;
 
 }
+
 .avg h2{
   position:absolute;
-  bottom:0;
   right:0;
+  bottom:0;
+}
+
+.form-group input{
+
+width:90%;
+margin-bottom:30px;
+
+}
+
+form{
+  margin-left:1%;
+}
+
+.form-row{
+  display:flex;
+  justify-content: space-between;
+  width:100%;
+  margin:auto;
+}
+.button-row{
+  display:flex;
+  justify-content: right;
+  align-items: end;
+}
+#add{
+  margin-left:auto;
+  margin-right:3%;
 }
