@@ -21,16 +21,17 @@
   position:relative;
 
 }
+
 .avg h2{
   position:absolute;
-  bottom:0;
   right:0;
+  bottom:0;
 }
 
 .form-group input{
 
 width:90%;
-margin-bottom:20px;
+margin-bottom:30px;
 
 }
 

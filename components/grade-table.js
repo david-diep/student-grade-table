@@ -4,9 +4,12 @@ class GradeTable{
   }
   updateGrades(grades){
     //console.log( grades);
-
+    var tableBody = this.tableElement.querySelector("tbody");
+    while(tableBody.lastChild){
+      tableBody.removeChild(tableBody.lastChild);
+    }
     for (let i = 0; i < grades.length; i++){
-      var tableBody = this.tableElement.querySelector("tbody");
+
       var row = document.createElement("tr");
       var nameBox = document.createElement("td");
       nameBox.textContent = grades[i].name;
