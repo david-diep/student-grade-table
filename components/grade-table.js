@@ -6,6 +6,7 @@ class GradeTable{
     //console.log( grades);
 
     for (let i = 0; i < grades.length; i++){
+      var tableBody = this.tableElement.querySelector("tbody");
       var row = document.createElement("tr");
       var nameBox = document.createElement("td");
       nameBox.textContent = grades[i].name;
@@ -16,7 +17,7 @@ class GradeTable{
       var gradeBox = document.createElement("td");
       gradeBox.textContent = grades[i].grade;
       row.appendChild(gradeBox);
-      this.tableElement.appendChild(row);
+      tableBody.appendChild(row);
     }
 
   }
