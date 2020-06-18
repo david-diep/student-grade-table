@@ -38,15 +38,15 @@ class GradeTable{
     var gradeBox = document.createElement("td");
     gradeBox.textContent = data.grade;
     row.appendChild(gradeBox);
-    var deleteBox = document.createElement("td");
+    var oppBox = document.createElement("td");
     var deleteButton = document.createElement("button");
     deleteButton.addEventListener('click', function(){
       deleteGrade(data.id);
     });
     deleteButton.textContent = "DELETE";
     deleteButton.className="btn btn-dark";
-    deleteBox.appendChild(deleteButton);
-    row.appendChild(deleteBox);
+    oppBox.appendChild(deleteButton);
+    row.appendChild(oppBox);
     return row;
 
   }

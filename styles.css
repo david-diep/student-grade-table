@@ -17,28 +17,35 @@
   border-color: black;
 }
 
-.avg{
+@media (min-width:800px) {.avg{
   position:relative;
 
 }
+}
 
-.avg h2{
+@media (min-width:800px) {.avg h2{
   position:absolute;
   right:0;
   bottom:0;
 }
+}
+
+.input-group-prepend{
+  width:15%;
+}
+.input-group-text{
+  width:100%;
+}
 
 .form-group input{
-
-width:90%;
 margin-bottom:30px;
-
 }
 
-form{
-  margin-left:1%;
-}
 
+
+.row{
+  flex-wrap: wrap;
+}
 .form-row{
   display:flex;
   justify-content: space-between;
