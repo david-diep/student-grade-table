@@ -30,18 +30,29 @@
 }
 }
 
+.fa-pencil-alt{
+  color:cornflowerblue;
+}
+td > i{
+  margin: 0 5px;
+}
+.fa-trash-alt{
+  color:crimson;
+}
 .input-group-prepend{
-  width:15%;
+  width:13%;
 }
 .input-group-text{
   width:100%;
 }
 
 .form-group input{
-margin-bottom:30px;
+margin-bottom:35px;
 }
 
-
+#form-title{
+  margin-bottom:20px ;
+}
 
 .row{
   flex-wrap: wrap;
@@ -57,7 +68,7 @@ margin-bottom:30px;
   justify-content: right;
   align-items: end;
 }
-#add{
+#add-edit{
   margin-left:auto;
   margin-right:3%;
 }

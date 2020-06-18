@@ -17,7 +17,7 @@ class GradeTable{
     }
     for (let i = 0; i < grades.length; i++){
 
-      var row = this.renderGradeRow(grades[i], this.deleteGrade);
+      var row = this.renderGradeRow(grades[i], this.deleteGrade, this.editClick);
       tableBody.appendChild(row);
     }
 
@@ -26,9 +26,12 @@ class GradeTable{
   onDeleteClick(deleteGrade){
     this.deleteGrade = deleteGrade;
   }
+  onEditClick(editClick){
+    this.editClick = editClick;
+  }
 
-  renderGradeRow(data, deleteGrade){
-    var row = document.createElement("tr")
+  renderGradeRow(data, deleteGrade, editClick){
+    var row = document.createElement("tr");
     var nameBox = document.createElement("td");
     nameBox.textContent = data.name;
     row.appendChild(nameBox);
@@ -39,12 +42,20 @@ class GradeTable{
     gradeBox.textContent = data.grade;
     row.appendChild(gradeBox);
     var oppBox = document.createElement("td");
-    var deleteButton = document.createElement("button");
-    deleteButton.addEventListener('click', function(){
+    var deleteButton = document.createElement("i");
+    deleteButton.className="fa fa-trash-alt fa-lg";
+    var editButton = document.createElement("i");
+    editButton.className = "fa fa-pencil-alt fa-lg";
+
+    deleteButton.addEventListener('click', function () {
       deleteGrade(data.id);
     });
-    deleteButton.textContent = "DELETE";
-    deleteButton.className="btn btn-dark";
+
+    editButton.addEventListener('click', function(){
+      editClick(data);
+    });
+
+    oppBox.appendChild(editButton);
     oppBox.appendChild(deleteButton);
     row.appendChild(oppBox);
     return row;
