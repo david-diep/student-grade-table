@@ -85,11 +85,13 @@ class App {
   }
 
   editClick(data){
-    console.log("editClick: ", data);
-    this.gradeForm.addToEdit(data,this.gradeForm.handleEdit);
+    this.gradeForm.addToEdit(data);
   }
 
-  editGrade(name, course, grade, id){
+  editGrade(name, course, grade){
+    var id = this.gradeForm.editID;
+    this.gradeForm.editID=null;
+    this.gradeForm.editToAdd();
     console.log("editGrade: ", name, course, grade, id); //name, course, grade, id
     $.ajax({
       method: "PATCH",
