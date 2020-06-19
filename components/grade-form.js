@@ -16,10 +16,10 @@ class GradeForm{
   }
   handleSubmit(event){
     event.preventDefault();
-    var formData = new FormData(event.target);
-    var name = formData.get("name");
-    var course = formData.get("course");
-    var grade = formData.get("grade");
+    const formData = new FormData(event.target);
+    const name = formData.get("name");
+    const course = formData.get("course");
+    const grade = formData.get("grade");
     event.target.reset();
     this.createGrade(name, course, grade);
   }
@@ -28,7 +28,7 @@ class GradeForm{
     this.formElement.querySelector("input[name='name']").value = data.name;
     this.formElement.querySelector("input[name='course']").value = data.course;
     this.formElement.querySelector("input[name='grade']").value = data.grade;
-    var button = this.formElement.querySelector("#add-edit");
+    const button = this.formElement.querySelector("#add-edit");
     button.textContent = "Edit";
     button.className = "btn btn-warning";
     this.formElement.removeEventListener("submit",this.handleSubmit);
@@ -39,16 +39,16 @@ class GradeForm{
   } //how do I pass the ID through
   handleEdit(event){
     event.preventDefault();
-    var formData = new FormData(event.target);
-    var name = formData.get("name");
-    var course = formData.get("course");
-    var grade = formData.get("grade");
+    const formData = new FormData(event.target);
+    const name = formData.get("name");
+    const course = formData.get("course");
+    const grade = formData.get("grade");
     event.target.reset();
     this.editGrade(name, course, grade);
   }
   editToAdd(){
     this.formElement.querySelector("#form-title").textContent = "Add Grade";
-    var button = this.formElement.querySelector("#add-edit");
+    const button = this.formElement.querySelector("#add-edit");
     button.textContent = "Add";
     button.className = "btn btn-primary";
     this.formElement.removeEventListener("submit", this.handleEdit);
