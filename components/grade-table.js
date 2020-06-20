@@ -11,13 +11,13 @@ class GradeTable{
     } else{
       if (!this.noGradesElement.classList.contains("d-none")) this.noGradesElement.classList.add("d-none")
     }
-    var tableBody = this.tableElement.querySelector("tbody");
+    const tableBody = this.tableElement.querySelector("tbody");
     while(tableBody.lastChild){
       tableBody.removeChild(tableBody.lastChild);
     }
     for (let i = 0; i < grades.length; i++){
 
-      var row = this.renderGradeRow(grades[i], this.deleteGrade, this.editClick);
+      const row = this.renderGradeRow(grades[i], this.deleteGrade, this.editClick);
       tableBody.appendChild(row);
     }
 
@@ -31,20 +31,20 @@ class GradeTable{
   }
 
   renderGradeRow(data, deleteGrade, editClick){
-    var row = document.createElement("tr");
-    var nameBox = document.createElement("td");
+    const row = document.createElement("tr");
+    const nameBox = document.createElement("td");
     nameBox.textContent = data.name;
     row.appendChild(nameBox);
-    var courseBox = document.createElement("td");
+    const courseBox = document.createElement("td");
     courseBox.textContent = data.course;
     row.appendChild(courseBox);
-    var gradeBox = document.createElement("td");
+    const gradeBox = document.createElement("td");
     gradeBox.textContent = data.grade;
     row.appendChild(gradeBox);
-    var oppBox = document.createElement("td");
-    var deleteButton = document.createElement("i");
+    const oppBox = document.createElement("td");
+    const deleteButton = document.createElement("i");
     deleteButton.className="fa fa-trash-alt fa-lg";
-    var editButton = document.createElement("i");
+    const editButton = document.createElement("i");
     editButton.className = "fa fa-pencil-alt fa-lg";
 
     deleteButton.addEventListener('click', function () {

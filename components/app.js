@@ -8,11 +8,13 @@ class App {
     this.handleDeleteGradeSuccess = this.handleDeleteGradeSuccess.bind(this);
     this.handleEditGradeSuccess = this.handleEditGradeSuccess.bind(this);
     this.handleEditGradeError = this.handleEditGradeError.bind(this);
+    this.updateHeader = this.updateHeader.bind(this);
     this.getGrades = this.getGrades.bind(this);
     this.createGrade = this.createGrade.bind(this);
     this.deleteGrade = this.deleteGrade.bind(this);
     this.editGrade = this.editGrade.bind(this);
     this.editClick = this.editClick.bind(this);
+    this.gradeList;
     this.gradeTable = gradeTable;
     this.pageHeader = pageHeader;
     this.gradeForm = gradeForm;
@@ -36,8 +38,10 @@ class App {
   handleCreateGradeError(error){
     console.log( error);
   }
-  handleCreateGradeSuccess(){
-    this.getGrades();
+  handleCreateGradeSuccess(data){
+    this.gradeList.push(data);
+    this.gradeTable.updateGrades(this.gradeList);
+    this.updateHeader(this.gradeList);
   }
 
   getGrades() {
@@ -53,21 +57,24 @@ class App {
     console.log(error);
   }
   handleGetGradesSuccess(grades) {
-    //console.log("get grade success")
+    this.gradeList = grades;
     this.gradeTable.updateGrades(grades);
+    this.updateHeader(grades);
+  }//end of handle success
 
+  updateHeader(grades){
     let average = 0;
     for (let i = 0; i < grades.length; i++) {
-      average += grades[i].grade;
+      average += parseInt(grades[i].grade);
     }
     average = average / grades.length;
     average = Math.round(10 * average) / 10; // round to nearest tenth
     this.pageHeader.updateAverage(average);
-
-  }//end of handle success
-
+  }
 
   deleteGrade(id){
+    const newList = this.gradeList.filter(grade => grade.id != id);
+    this.gradeList = newList;
     $.ajax({
       method: "DELETE",
       url: "https://sgt.lfzprototypes.com/api/grades/"+id,
@@ -75,13 +82,16 @@ class App {
       success: this.handleDeleteGradeSuccess,
       error: this.handleDeleteGradeError
     });
+
   }
 
   handleDeleteGradeError(error){
     console.log( error);
   }
   handleDeleteGradeSuccess(){
-    this.getGrades();
+    //grade deleted in deleteGrade function
+    this.gradeTable.updateGrades(this.gradeList);
+    this.updateHeader(this.gradeList);
   }
 
   editClick(data){
@@ -89,10 +99,9 @@ class App {
   }
 
   editGrade(name, course, grade){
-    var id = this.gradeForm.editID;
+    const id = this.gradeForm.editID;
     this.gradeForm.editID=null;
     this.gradeForm.editToAdd();
-    console.log("editGrade: ", name, course, grade, id); //name, course, grade, id
     $.ajax({
       method: "PATCH",
       url: "https://sgt.lfzprototypes.com/api/grades/" + id,
@@ -110,8 +119,10 @@ class App {
     console.log(error);
   }
   handleEditGradeSuccess(data) {//data is the one student being edited
-    console.log("Grade Editted Successfully:", data);
-    this.getGrades();
+    const index = this.gradeList.findIndex(grade => grade.id === data.id);
+    this.gradeList[index] = data;
+    this.gradeTable.updateGrades(this.gradeList);
+    this.updateHeader(this.gradeList);
   }
 
   start() {
@@ -121,4 +132,6 @@ class App {
     this.gradeForm.onEdit(this.editGrade);
     this.getGrades();
   }
+
+
 }
